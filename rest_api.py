@@ -6,10 +6,10 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 app = Flask(__name__)
   
-app.config['MYSQL_HOST'] = 'finteachdb.mysql.database.azure.com'
-app.config['MYSQL_USER'] = 'finteach_admin@finteachdb'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'finteach'
+app.config['MYSQL_HOST'] = os.environ.get("MYSQL_HOST")
+app.config['MYSQL_USER'] = os.environ.get("MYSQL_USER")
+app.config['MYSQL_PASSWORD'] = os.environ.get("MYSQL_PASSWORD")
+app.config['MYSQL_DB'] = os.environ.get("MYSQL_DB")
  
 mysql = MySQL(app)
 
